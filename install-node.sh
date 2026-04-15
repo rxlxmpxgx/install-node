@@ -208,7 +208,7 @@ sysctl --system
 # --- Fail2Ban ---
 echo ">>> Настройка Fail2Ban..."
 apt install -y fail2ban
-cat > /etc/fail2ban/jail.local << EOBF2B
+cat > /etc/fail2ban/jail.local << EOF
 [sshd]
 enabled = true
 port = ${SSH_PORT}
@@ -217,7 +217,7 @@ logpath = /var/log/auth.log
 maxretry = 3
 findtime = 600
 bantime = 3600
-EOFF2B
+EOF
 systemctl enable fail2ban
 systemctl restart fail2ban
 
